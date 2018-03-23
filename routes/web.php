@@ -22,8 +22,13 @@ Route::get('/', function () {
 */
 Route::get('/find', function()
 {
- $post=Post::all();
- foreach ($post as $posts) {
-  echo $posts;
- }
+//    for all records
+// $post=Post::all();
+// foreach ($post as $posts) {
+//  echo $posts;
+//  
+// }
+    #for one recorf or particular record
+    $post= Post::find(2);
+    return $post->title;
 });
