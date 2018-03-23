@@ -70,12 +70,100 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 |
 */
-Route::get('/findmore',function(){
-//     $post = Post::where('title', 'sumanta')->exists();
-    $post=Post::findOrFail('5');
-    return $post;
-//     dump($post);
-}
-    );
+//Route::get('/findmore',function(){
+////     $post = Post::where('title', 'sumanta')->exists();
+//    $post=Post::findOrFail('5');
+//    return $post;
+////     dump($post);
+//}
+//    );
  
-    
+    /*
+|--------------------------------------------------------------------------
+| Inserting Or Saving Data
+|--------------------------------------------------------------------------
+|
+*/
+    //orm=Object Relation mapping
+  
+//    Route::get('/basicInsert',function(){
+//        
+//        //fo inserting single data
+//        $post=new Post;
+//        $post->title='neweoquenttitle';
+//        $post->content='asddasdas';
+//        $post->isAdmin="0";
+//        $post->save();//it will insert he method and update it 
+//    }
+//        );
+            /*
+|--------------------------------------------------------------------------
+|Altering data
+|--------------------------------------------------------------------------
+|
+*/
+//        Route::get('/updatesingle',function(){
+//            $post=Post::find(1);//it will find data with id 1 and then we can update the 
+//            $post->title='sumanta';
+//            $post->content="asdasdasdad";
+//            $post->isAdmin="0";
+//            $post->save();
+//        }
+//            );
+//        
+        
+        
+        
+            /*
+|--------------------------------------------------------------------------
+| Inserting Mass Data
+|--------------------------------------------------------------------------
+|
+*/
+
+     //laravel prevent multiple record to be updated for this we need to add something insid model
+//If we dont add anything we will get an exception as massassigment asception 
+//for this 
+//Route::get('/mass',function(){
+//    Post::create(['title'=>'sumit','content'=>'friend','isAdmin'=>'1']); //it will take array 
+//    //insert multiple data into it
+//    
+//}
+//    );
+                /*
+|--------------------------------------------------------------------------
+| Updating Data using laravel eloquent
+|--------------------------------------------------------------------------
+|
+*/
+//Route::get('/update',function(){
+//    
+//    Post::where('id',1)->where('isAdmin',0)->update(['title'=>'suman','content'=>'luminoguru','isAdmin'=>0]);
+//}
+//    );
+                    /*
+|--------------------------------------------------------------------------
+| Deleting  Data using laravel eloquent
+|--------------------------------------------------------------------------
+|
+*/
+//    Route::get('/delete',function(){
+//        $post=Post::find(1);
+//        $post->delete();
+//        
+//    }
+                        /*
+|--------------------------------------------------------------------------
+| Deleting  Data using laravel eloquent using destroy
+|--------------------------------------------------------------------------
+|
+*/
+//        );
+//        Route::get('/destroy',function(){
+//      Post::destroy(2);
+//        
+//    }
+//        );
+//    
+    // we can destroy multiple records using destroy([4,5]);
+
