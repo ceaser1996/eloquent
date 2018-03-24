@@ -1,5 +1,6 @@
 <?php
 use App\Post;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -239,14 +240,48 @@ Route::get('/softdeletes',function(){
     
     
          /*  |--------------------------------------------------------------------------
-| Relations one to one 
+| Relations one to one (HASONE)
 |--------------------------------------------------------------------------
 |
 */
 //    if we take example of one to one it means that one user one post vb 
     //inside child model Post e will write the functionality 
-    Route::get('/ononone',function(){
-        
-        
-    }
-        );
+//    Route::get('/user/{id}/post',function($id){
+//        return User::find($id)->post;//if we want to a specific data we can chain it ->title
+//        
+//    }
+//        );
+                 /*  |--------------------------------------------------------------------------
+| Inverse Relationship
+|--------------------------------------------------------------------------
+|
+*/
+        //instead of pulling out post of the user using post we will pull user
+//        Route::get('/post/{id}/user', function($id){
+//            
+//            return Post::find($id)->user;
+//        }
+//            );
+            
+                            /*  |--------------------------------------------------------------------------
+| IOne to Many Relationship
+|--------------------------------------------------------------------------
+|
+*/ 
+//    Route::get('/posts',function(){
+//        $post=User::find(1)->posts;//this will bring all the posts of user 1 and this ine one to many relationship
+//        foreach($post as $pos){
+//            echo $pos."<br>";
+//        }
+//        
+//    }
+//        );
+                
+                            /*  |--------------------------------------------------------------------------
+| relationship  Many To Many 
+|--------------------------------------------------------------------------
+|
+*/ 
+//    This is done by pivot its lokup table used to relate to other tables
+//    to contruct a pivot table 
+//       in this relation ship let us take a example more than one user can be admin vice versa 
