@@ -2,6 +2,7 @@
 use App\Post;
 use App\User;
 use App\Role;
+use App\Country;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -297,9 +298,22 @@ Route::get('/softdeletes',function(){
         
         
 //        Many to Many revers now we will find how many admins are there 
-        Route::get('/role/{id}/user',function($id){
-            
-            $user=Role::find($id)->user()->orderBy('id','desc')->get();
-            return $user;
-        }
-            );
+//        Route::get('/role/{id}/user',function($id){
+//            
+//            $user=Role::find($id)->user()->orderBy('id','desc')->get();
+//            return $user;
+//        }
+//            );
+   /* ----
+| Has Many Through 
+|--------------------------------------------------------------------------
+|
+*/ 
+    Route::get('/user/country',function(){
+    $country=Country::find(1)->check;
+    foreach ($country as $coun){
+        return $coun;
+    }
+        
+    }
+        );
