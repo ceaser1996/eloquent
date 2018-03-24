@@ -86,16 +86,16 @@ Route::get('/', function () {
 */
     //orm=Object Relation mapping
   
-//    Route::get('/basicInsert',function(){
-//        
-//        //fo inserting single data
-//        $post=new Post;
-//        $post->title='neweoquenttitle';
-//        $post->content='asddasdas';
-//        $post->isAdmin="0";
-//        $post->save();//it will insert he method and update it 
-//    }
-//        );
+    Route::get('/basicInsert',function(){
+        
+        //fo inserting single data
+        $post=new Post;
+        $post->title='neweoquenttitle';
+        $post->content='asddasdas';
+        $post->isAdmin="0";
+        $post->save();//it will insert he method and update it 
+    }
+        );
             /*
 |--------------------------------------------------------------------------
 |Altering data
@@ -167,3 +167,86 @@ Route::get('/', function () {
 //    
     // we can destroy multiple records using destroy([4,5]);
 
+                        /*
+|--------------------------------------------------------------------------
+| Soft Delete
+|--------------------------------------------------------------------------
+|
+*/
+// basically laraveldont have any time stamp of deleted at with it but we can add it 
+// soft delete is a principle where the item hcih we want to delte isnot dleted permanantly unless and ntill we force to delete it 
+// first we need to import the class of soft delete in the table where we want to aplly it
+//use Illuminate\Database\Eloquent\SoftDeletes;
+// we will add one migration :/var/www/html/Test$ php artisan make:migration add_deleted_at_column_to_posts_table --table=posts
+
+Route::get('/softdeletes',function(){
+    
+    Post::find(8)->delete();
+}
+    );
+    //timestamp with soft delete will be updated 
+    
+                        /*
+|--------------------------------------------------------------------------
+| Querying Soft Deleted data
+|--------------------------------------------------------------------------
+|
+*/
+                            /*
+|--------------------------------------------------------------------------
+| Read soft Delete
+|--------------------------------------------------------------------------
+|
+*/
+//    Route::get('/rsoftdelete', function()
+//    {
+////        $post=Post::find(7);
+////        return $post;
+////        with this above method we cant fetch the softdeleted items for that we nned to use another method
+////        $post=Post::withTrashed()->where('id',7)->get();
+////        return $post;
+//        // **** this method will bring all lemnt including trashed elements
+//        $post=Post::withTrashed()->get();
+//        return $post;
+//        //this method is specific for records we want to access
+////        for fetching all deleted methods
+////        $post= Post::onlyTrashed()->get();
+////        return $post;
+//        
+//    }
+//            );
+  /*  |--------------------------------------------------------------------------
+| Retreiving  soft Delete
+|--------------------------------------------------------------------------
+|
+*/
+//    Route::get('/restore',function(){
+//        $post=Post::onlyTrashed()->restore();// this will restore all items to its originatl state we can retreive the samse using where and withTrashed method
+//        return $post;
+//        
+//    }
+//        ); 
+      /*  |--------------------------------------------------------------------------
+| Foce delete a   soft Delete
+|--------------------------------------------------------------------------
+|
+*/
+//    Route::get('/del',function(){
+//        
+//        Post::where('id',8)->forceDelete();
+//    }
+//        );
+    
+    
+         /*  |--------------------------------------------------------------------------
+| Relations one to one 
+|--------------------------------------------------------------------------
+|
+*/
+//    if we take example of one to one it means that one user one post vb 
+    //inside child model Post e will write the functionality 
+    Route::get('/ononone',function(){
+        
+        
+    }
+        );
