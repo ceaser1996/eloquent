@@ -1,6 +1,7 @@
 <?php
 use App\Post;
 use App\User;
+use App\Role;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -269,10 +270,11 @@ Route::get('/softdeletes',function(){
 |
 */ 
 //    Route::get('/posts',function(){
-//        $post=User::find(1)->posts;//this will bring all the posts of user 1 and this ine one to many relationship
-//        foreach($post as $pos){
-//            echo $pos."<br>";
-//        }
+//        $post=User::find(1)->posts()->get();//this will bring all the posts of user 1 and this ine one to many relationship
+//        return $post;
+////        foreach($post as $pos){
+////            echo $pos."<br>";
+////        }
 //        
 //    }
 //        );
@@ -285,3 +287,19 @@ Route::get('/softdeletes',function(){
 //    This is done by pivot its lokup table used to relate to other tables
 //    to contruct a pivot table 
 //       in this relation ship let us take a example more than one user can be admin vice versa 
+//    Route::get('/user/{id}/role',function($id){
+//         $user=User::find($id)->role()->orderBy('id','desc')->get();//find the user id and give me his roles
+//        return $user;
+////         foreach ($user as $use){
+////     echo $use->name."<br>";           
+////    }
+//    });
+        
+        
+//        Many to Many revers now we will find how many admins are there 
+        Route::get('/role/{id}/user',function($id){
+            
+            $user=Role::find($id)->user()->orderBy('id','desc')->get();
+            return $user;
+        }
+            );
